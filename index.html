@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/phone.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/iphone.png" type="image/x-icon">
     <title>Phone Hunting</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -14,36 +14,132 @@
 </head>
 
 <body class="font-poppins">
-    <header class="bg-[#0D6EFD0D] min-h-screen">
-        <div class="max-w-7xl mx-auto py-4">
+    <!-- Header section -->
+    <header class="lg:bg-[#0D6EFD0D] lg:min-h-screen ">
+        <div class="max-w-7xl mx-auto lg:py-4">
             <div class="navbar">
                 <div class="navbar-start">
-                    <a class="text-[25px] text-[#403F3F] font-bold">Hot Gudget</a>
+                    <a class="lg:text-[25px] text-[#403F3F] font-bold">Hot Gudget</a>
                 </div>
                 <div class="navbar-end">
                     <a class="btn bg-[#0D6EFD] font-bold text-white">Sign Up</a>
                 </div>
             </div>
-            <div class="lg:w-[800px] mx-auto text-center mt-12">
-                <h1 class="text-[#100F0F] font-bold text-[65px]">Apple Iphone 13 Pro Max</h1>
-                <p class="text-[#706F6F] mt-6 mb-8">There are many variations of passages of Lorem Ipsum available, but
+            <div class="lg:w-[800px] mx-auto text-center lg:mt-12 mt-6 lg:p-0 p-4">
+                <h1 class="text-[#100F0F] font-bold lg:text-[65px] text-[30px] mb-3">Apple Iphone 13 Pro Max</h1>
+                <p class="text-[#706F6F] lg:mt-6 lg:mb-8 mb-4">There are many variations of passages of
+                    Lorem Ipsum available, but
                     the
                     majority have suffered
                     alteration
                     in some form, by injected humou.</p>
-                <button class="btn bg-[#0D6EFD] text-white">Buy Now</button>
+                <button class="btn bg-[#0D6EFD] text-white font-bold">Buy Now</button>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="-mt-80 flex justify-center">
+
+    <main class="lg:max-w-7xl lg:mx-auto mb-32">
+        <div class="lg:-mt-80 flex justify-center">
             <img src="images/Group 48095420.png" alt="">
         </div>
+        <div class="lg:mt-32 mt-16 text-center">
+            <h1 class="text-[#100F0F] font-bold text-[35px] lg:mb-7 mb-3">Search your phone</h1>
+            <div class="join mb-12">
+                <input id="search-field" class="input lg:w-[500px] bg-[#100F0F0D] join-item"
+                    placeholder="Search your phone" />
+                <button onclick="handleSearch()"
+                    class="btn join-item rounded-xl bg-[#0D6EFD] text-white">Search</button>
+            </div>
+        </div>
+        <!-- Loading spinner -->
+        <div id='loading-spinner' class="text-center my-40 hidden">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+
+        <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+            <!-- <div class="card border-2 lg:m-0 m-4">
+                <figure class="px-6 py-6 m-6 rounded bg-[#0D6EFD0D]">
+                    <img src="images/pngwing 3.png" alt="Shoes" class="rounded-xl" />
+                </figure>
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title">Shoes!</h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions">
+                        <button class="btn bg-[#0D6EFD] font-bold text-white">Buy Now</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div id="show-all-container" class="text-center mt-12 hidden">
+            <button onclick="handleShowAll()" class="btn bg-[#0D6EFD] text-white font-bold">Show All</button>
+        </div>
+
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="show-details-container">
+                    <div class="object-center">
+                        <img src="images/pngwing 3.png" alt="">
+                    </div>
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button class="btn bg-[#DC3545] font-bold text-white">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </main>
 
-    <footer>
 
+    <!-- Footer section -->
+    <footer class="bg-[#0D6EFD0D] lg:mt-32">
+        <div class="max-w-7xl mx-auto lg:py-28 py-10 px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center lg:justify-between text-center lg:text-left">
+                <div>
+                    <h3 class="text-[#100F0F] font-bold text-[40px]">Hot Gadgets</h3>
+                    <p class="text-[#706F6F] mt-4">You can definitely work.</p>
+                </div>
+                <div class="flex lg:justify-end items-center justify-center gap-4 mt-6">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Twitter.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <button class="btn bg-[#0D6EFD] text-white font-bold">Join Premium</button>
+                </div>
+            </div>
+            <div class="border-2 my-12 "></div>
+            <div class="grid grid-cols-2 lg:grid-cols-4">
+                <div>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Product</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Browse jobs</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Remote jobs</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Startup jobs</a></ol>
+                    <ol><a class="font-medium text-[#403F3F]" href="">Company jobs</a></ol>
+                </div>
+                <div>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Popular</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">UIUX Design</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Product Design</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Back-End Developer</a></ol>
+                    <ol><a class="font-medium text-[#403F3F]" href="">Front-End Developer</a></ol>
+                </div>
+                <div>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Resource</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Faq</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Support</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Privacy Policy</a></ol>
+                    <ol><a class="font-medium text-[#403F3F]" href="">Terms of Service</a></ol>
+                </div>
+                <div>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Comapny</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">About Us</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Contact Us</a></ol>
+                    <ol class="mb-2"><a class="font-medium text-[#403F3F]" href="">Careers Tips</a></ol>
+                    <ol><a class="font-medium text-[#403F3F]" href="">Careers</a></ol>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="js/phone.js"></script>
